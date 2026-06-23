@@ -3,12 +3,18 @@ import { Waves } from 'lucide-react';
 
 export default function LoadingScreen() {
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-[#050b14] gap-5">
-      <div className="w-14 h-14 rounded-2xl flex items-center justify-center logo-badge animate-pulse">
-        <Waves size={26} className="text-slate-950" />
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-black gap-6">
+      <div className="relative">
+        <div className="absolute inset-0 rounded-2xl blur-xl" style={{ background: 'rgba(59,130,246,0.45)' }} />
+        <div className="relative w-16 h-16 rounded-2xl flex items-center justify-center logo-badge">
+          <Waves size={28} className="text-white" />
+        </div>
       </div>
-      <p className="text-sm font-medium text-slate-400 tracking-wide">Loading Bluvia Dashboard…</p>
-      <div className="w-48 h-1 rounded-full bg-slate-800 overflow-hidden">
+      <div className="text-center space-y-1">
+        <p className="text-base font-bold text-white font-display tracking-widest">BLUVIA</p>
+        <p className="text-xs font-medium text-blue-400/70 tracking-[0.2em] uppercase">Initialising Dashboard</p>
+      </div>
+      <div className="w-52 h-0.5 rounded-full bg-blue-900/60 overflow-hidden">
         <div className="h-full w-1/2 rounded-full loading-bar" />
       </div>
     </div>

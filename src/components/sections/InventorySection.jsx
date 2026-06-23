@@ -13,12 +13,15 @@ export default function InventorySection() {
   return (
     <section id="inventory" className="space-y-5 scroll-mt-24">
       <SectionHeading eyebrow="Stock" title="Inventory Overview" />
+
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-4">
         {INVENTORY_SUMMARY.map((c) => (
           <GlassCard key={c.label} className="text-center">
-            <c.icon size={18} className="text-teal-300 mx-auto mb-2" />
+            <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/15 flex items-center justify-center mx-auto mb-2.5 text-blue-400">
+              <c.icon size={17} />
+            </div>
             <p className="text-lg font-bold text-white font-mono">{c.value}</p>
-            <p className="text-[11px] text-slate-400 mt-1">{c.label}</p>
+            <p className="text-[11px] text-slate-500 mt-1">{c.label}</p>
           </GlassCard>
         ))}
       </div>
@@ -30,7 +33,9 @@ export default function InventorySection() {
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie data={inventoryDonut} dataKey="value" nameKey="name" innerRadius={58} outerRadius={88} paddingAngle={3}>
-                  {inventoryDonut.map((_, i) => <Cell key={i} fill={DONUT_COLORS[i % DONUT_COLORS.length]} stroke="none" />)}
+                  {inventoryDonut.map((_, i) => (
+                    <Cell key={i} fill={DONUT_COLORS[i % DONUT_COLORS.length]} stroke="none" />
+                  ))}
                 </Pie>
                 <Tooltip content={<DonutTooltip />} />
               </PieChart>
@@ -38,7 +43,7 @@ export default function InventorySection() {
           </div>
           <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 mt-2">
             {inventoryDonut.map((d, i) => (
-              <span key={d.name} className="flex items-center gap-1.5 text-[11px] text-slate-400 truncate">
+              <span key={d.name} className="flex items-center gap-1.5 text-[11px] text-slate-500 truncate">
                 <span className="w-2 h-2 rounded-full shrink-0" style={{ background: DONUT_COLORS[i % DONUT_COLORS.length] }} />
                 {d.name}
               </span>
@@ -47,15 +52,17 @@ export default function InventorySection() {
         </GlassCard>
 
         <GlassCard className="xl:col-span-3">
-          <SectionHeading eyebrow="Action needed" title="Stock Alert Panel" />
-          <div className="space-y-1">
+          <SectionHeading eyebrow="Action Needed" title="Stock Alert Panel" />
+          <div className="space-y-0">
             {STOCK_ALERTS.map((s) => (
-              <div key={s.name} className="flex items-center justify-between gap-3 py-3 border-b border-slate-800/50 last:border-0">
+              <div key={s.name} className="flex items-center justify-between gap-3 py-3 border-b border-blue-950/40 last:border-0">
                 <div className="flex items-center gap-3 min-w-0">
-                  <AlertTriangle size={16} className="text-amber-400 shrink-0" />
+                  <div className="w-7 h-7 rounded-lg bg-amber-400/10 border border-amber-400/20 flex items-center justify-center shrink-0">
+                    <AlertTriangle size={13} className="text-amber-400" />
+                  </div>
                   <div className="min-w-0">
                     <p className="text-sm font-medium text-slate-200 truncate">{s.name}</p>
-                    <p className="text-[11px] text-slate-500 font-mono">{s.stock} in stock · reorder at {s.reorder}</p>
+                    <p className="text-[11px] text-slate-600 font-mono">{s.stock} in stock · reorder at {s.reorder}</p>
                   </div>
                 </div>
                 <StatusPill status={s.status} />

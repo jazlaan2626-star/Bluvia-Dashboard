@@ -14,7 +14,7 @@ export default function ProductsSection() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm min-w-[820px]">
             <thead>
-              <tr className="text-left text-xs text-slate-500 uppercase tracking-wide border-y border-slate-800/60">
+              <tr className="text-left text-[11px] text-slate-600 uppercase tracking-widest border-y border-blue-950/50">
                 <th className="px-5 py-3 font-medium">Product</th>
                 <th className="px-3 py-3 font-medium">Category</th>
                 <th className="px-3 py-3 font-medium text-right">Units Sold</th>
@@ -27,14 +27,14 @@ export default function ProductsSection() {
             </thead>
             <tbody>
               {TOP_PRODUCTS.map((p) => (
-                <tr key={p.name} className="border-b border-slate-800/40 last:border-0 hover:bg-teal-400/5 transition-colors">
-                  <td className="px-5 py-3.5 font-medium text-slate-100 whitespace-nowrap">{p.name}</td>
-                  <td className="px-3 py-3.5 text-slate-400 whitespace-nowrap">{p.category}</td>
-                  <td className="px-3 py-3.5 text-right font-mono text-slate-300">{fmtNum(p.units)}</td>
-                  <td className="px-3 py-3.5 text-right font-mono text-slate-100">{fmtMVR(p.revenue)}</td>
-                  <td className="px-3 py-3.5 text-right font-mono text-slate-400">{fmtMVR(p.cost)}</td>
-                  <td className="px-3 py-3.5 text-right font-mono text-teal-300">{fmtMVR(p.profit)}</td>
-                  <td className="px-3 py-3.5 text-right font-mono text-slate-300">{fmtNum(p.stock)}</td>
+                <tr key={p.name} className="table-row-hover border-b border-blue-950/40 last:border-0 transition-colors cursor-default">
+                  <td className="px-5 py-3.5 font-medium text-slate-200 whitespace-nowrap">{p.name}</td>
+                  <td className="px-3 py-3.5 text-slate-500 whitespace-nowrap">{p.category}</td>
+                  <td className="px-3 py-3.5 text-right font-mono text-slate-400">{fmtNum(p.units)}</td>
+                  <td className="px-3 py-3.5 text-right font-mono text-slate-200">{fmtMVR(p.revenue)}</td>
+                  <td className="px-3 py-3.5 text-right font-mono text-slate-500">{fmtMVR(p.cost)}</td>
+                  <td className="px-3 py-3.5 text-right font-mono text-blue-400">{fmtMVR(p.profit)}</td>
+                  <td className="px-3 py-3.5 text-right font-mono text-slate-400">{fmtNum(p.stock)}</td>
                   <td className="px-5 py-3.5"><StatusPill status={p.status} /></td>
                 </tr>
               ))}

@@ -48,9 +48,9 @@ export const MONTHLY_DATA = [
 export const BASE_KPI = { revenue: 185450, profit: 62780, orders: 286, inventoryValue: 240500, units: 1840 };
 
 export const GAUGES = [
-  { key: 'revenue', label: 'Revenue Target', percent: 82, value: 'MVR 185,450 of MVR 226,000', color: '#2dd4bf' },
-  { key: 'profit', label: 'Profit Target', percent: 74, value: 'MVR 62,780 of MVR 84,800', color: '#38bdf8' },
-  { key: 'sales', label: 'Sales Target', percent: 91, value: '286 of 315 orders', color: '#fb923c' },
+  { key: 'revenue', label: 'Revenue Target', percent: 82, value: 'MVR 185,450 of MVR 226,000', color: '#3b82f6' },
+  { key: 'profit', label: 'Profit Target', percent: 74, value: 'MVR 62,780 of MVR 84,800', color: '#60a5fa' },
+  { key: 'sales', label: 'Sales Target', percent: 91, value: '286 of 315 orders', color: '#7c3aed' },
 ];
 
 export const CATEGORY_DATA = [
@@ -63,7 +63,7 @@ export const CATEGORY_DATA = [
   { name: 'Accessories', units: 410, value: 19800 },
 ];
 
-export const DONUT_COLORS = ['#2dd4bf', '#38bdf8', '#0ea5e9', '#fb923c', '#34d399', '#a78bfa', '#f472b6'];
+export const DONUT_COLORS = ['#3b82f6', '#60a5fa', '#0ea5e9', '#7c3aed', '#2563eb', '#a78bfa', '#93c5fd'];
 
 export const TOP_PRODUCTS = [
   { name: 'Bluvia Ocean Glide Fins', category: 'Snorkeling Fins', units: 186, revenue: 27900, cost: 16740, profit: 11160, stock: 142, status: 'In Stock' },
@@ -90,10 +90,10 @@ export const STOCK_ALERTS = [
 ];
 
 export const ORDER_STATUSES = [
-  { label: 'New Orders', value: 32, icon: Sparkles, color: '#38bdf8' },
+  { label: 'New Orders', value: 32, icon: Sparkles, color: '#60a5fa' },
   { label: 'Processing', value: 41, icon: RefreshCw, color: '#a78bfa' },
-  { label: 'Packed', value: 28, icon: Box, color: '#fb923c' },
-  { label: 'Shipped', value: 56, icon: Truck, color: '#22d3ee' },
+  { label: 'Packed', value: 28, icon: Box, color: '#3b82f6' },
+  { label: 'Shipped', value: 56, icon: Truck, color: '#0ea5e9' },
   { label: 'Delivered', value: 118, icon: PackageCheck, color: '#34d399' },
   { label: 'Cancelled', value: 11, icon: XCircle, color: '#fb7185' },
 ];

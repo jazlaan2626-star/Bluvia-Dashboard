@@ -59,11 +59,12 @@ export default function App() {
   if (isLoading) return <LoadingScreen />;
 
   return (
-    <div className="min-h-screen w-full text-slate-200 relative" style={{ background: '#050b14' }}>
+    <div className="min-h-screen w-full text-slate-200 relative" style={{ background: '#000000' }}>
       <div className="caustic-bg">
         <div className="caustic-blob blob-1" />
         <div className="caustic-blob blob-2" />
         <div className="caustic-blob blob-3" />
+        <div className="caustic-blob blob-4" />
       </div>
 
       <div className="relative z-10 flex">
@@ -86,8 +87,8 @@ export default function App() {
             <MarketingSection />
             <ExpensesSection excludeShipIncluded={excludeShipIncluded} setExcludeShipIncluded={setExcludeShipIncluded} />
 
-            <footer className="pt-4 pb-2 text-center text-[11px] text-slate-600">
-              Bluvia Maldives · Business Dashboard · Sample data for demonstration — connect a live data source to replace it.
+            <footer className="pt-6 pb-3 text-center text-[11px] text-slate-700 border-t border-blue-950/30">
+              BLUVIA MALDIVES · Business Intelligence Dashboard · Sample data — connect a live data source to activate live metrics.
             </footer>
           </main>
         </div>
