@@ -2,7 +2,7 @@ import React from 'react';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from 'recharts';
-import { DollarSign, TrendingUp, ShoppingBag, Package } from 'lucide-react';
+import { DollarSign, TrendingUp, ShoppingBag } from 'lucide-react';
 import GlassCard from '../ui/GlassCard';
 import SectionHeading from '../ui/SectionHeading';
 import KPICard from '../ui/KPICard';
@@ -15,11 +15,10 @@ export default function DashboardSection({ kpi, margin, chartData, chartPeriod, 
   return (
     <section id="dashboard" className="space-y-5 scroll-mt-24">
       {/* KPI Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
         <KPICard label="Total Revenue" value={fmtMVR(kpi.revenue)} sublabel={`${margin}% margin on the period`} icon={DollarSign} trend={18} accent="#3b82f6" />
         <KPICard label="Total Profit" value={fmtMVR(kpi.profit)} sublabel={`Profit margin: ${margin}%`} icon={TrendingUp} accent="#60a5fa" />
-        <KPICard label="Total Orders" value={fmtNum(kpi.orders)} sublabel="orders this period" icon={ShoppingBag} trend={12} accent="#7c3aed" />
-        <KPICard label="Inventory Value" value={fmtMVR(kpi.inventoryValue)} sublabel={`${fmtNum(kpi.units)} units available`} icon={Package} accent="#0ea5e9" />
+        <KPICard label="Total Sales" value={fmtNum(kpi.orders)} sublabel="orders this period" icon={ShoppingBag} trend={12} accent="#7c3aed" />
       </div>
 
       {/* Revenue / Profit Area Chart */}

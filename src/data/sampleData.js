@@ -14,14 +14,11 @@ import {
 export const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'sales', label: 'Sales', icon: TrendingUp },
-  { id: 'inventory', label: 'Inventory', icon: Package },
   { id: 'products', label: 'Products', icon: ShoppingBag },
-  { id: 'orders', label: 'Orders', icon: ClipboardList },
+  { id: 'inventory', label: 'Inventory', icon: Package },
   { id: 'customers', label: 'Customers', icon: Users },
   { id: 'marketing', label: 'Marketing', icon: Megaphone },
   { id: 'expenses', label: 'Expenses', icon: Wallet },
-  { id: 'reports', label: 'Reports', icon: FileBarChart2 },
-  { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
 export const DATE_FILTERS = ['Today', 'This Week', 'This Month', 'This Quarter', 'This Year', 'Custom Range'];

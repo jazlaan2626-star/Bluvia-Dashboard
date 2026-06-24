@@ -6,7 +6,6 @@ import DashboardSection from './components/sections/DashboardSection';
 import SalesSection from './components/sections/SalesSection';
 import ProductsSection from './components/sections/ProductsSection';
 import InventorySection from './components/sections/InventorySection';
-import OrdersSection from './components/sections/OrdersSection';
 import CustomersSection from './components/sections/CustomersSection';
 import MarketingSection from './components/sections/MarketingSection';
 import ExpensesSection from './components/sections/ExpensesSection';
@@ -20,7 +19,6 @@ export default function App() {
   const [dateFilter, setDateFilter] = useState('This Month');
   const [chartPeriod, setChartPeriod] = useState('Month');
   const [notice, setNotice] = useState(null);
-  const [excludeShipIncluded, setExcludeShipIncluded] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setIsLoading(false), 650);
@@ -30,11 +28,6 @@ export default function App() {
   const handleNavClick = (id) => {
     setActiveNav(id);
     setMobileOpen(false);
-    if (id === 'reports' || id === 'settings') {
-      setNotice(`${id === 'reports' ? 'Reports' : 'Settings'} is part of the full Bluvia platform — this preview focuses on the live dashboard below.`);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -44,8 +37,6 @@ export default function App() {
     revenue: BASE_KPI.revenue * mult,
     profit: BASE_KPI.profit * mult,
     orders: Math.max(1, Math.round(BASE_KPI.orders * mult)),
-    inventoryValue: BASE_KPI.inventoryValue,
-    units: BASE_KPI.units,
   }), [mult]);
   const margin = ((kpi.profit / kpi.revenue) * 100).toFixed(1);
 
@@ -82,13 +73,12 @@ export default function App() {
             <SalesSection />
             <ProductsSection />
             <InventorySection />
-            <OrdersSection />
             <CustomersSection />
             <MarketingSection />
-            <ExpensesSection excludeShipIncluded={excludeShipIncluded} setExcludeShipIncluded={setExcludeShipIncluded} />
+            <ExpensesSection />
 
             <footer className="pt-6 pb-3 text-center text-[11px] text-slate-700 border-t border-blue-950/30">
-              BLUVIA MALDIVES · Business Intelligence Dashboard · Sample data — connect a live data source to activate live metrics.
+              BLUVIA MALDIVES · Business Intelligence Dashboard · Connect Google Sheets to activate live data.
             </footer>
           </main>
         </div>
