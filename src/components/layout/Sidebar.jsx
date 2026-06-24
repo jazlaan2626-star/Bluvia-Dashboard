@@ -18,12 +18,7 @@ export default function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobile
           {/* Logo */}
           <div className="flex items-center justify-between px-4 py-5 border-b border-blue-950/60">
             <div className="flex items-center gap-2.5 min-w-0">
-              <div className="relative shrink-0">
-                <div className="absolute inset-0 rounded-xl blur-md" style={{ background: 'rgba(59,130,246,0.35)' }} />
-                <div className="relative">
-                  <BLogo size="sm" />
-                </div>
-              </div>
+              <BLogo size="sm" />
               {!collapsed && (
                 <div className="min-w-0">
                   <span className="font-display font-bold text-white tracking-widest text-[14px] truncate block">BLUVIA</span>

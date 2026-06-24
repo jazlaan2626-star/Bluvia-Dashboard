@@ -85,12 +85,7 @@ export default function TopBar({ setMobileOpen, dateFilter, setDateFilter, notic
           </button>
 
           {/* Avatar */}
-          <div className="relative">
-            <div className="absolute inset-0 rounded-xl blur-md opacity-70" style={{ background: 'rgba(59,130,246,0.4)' }} />
-            <div className="relative">
-              <BLogo size="sm" />
-            </div>
-          </div>
+          <BLogo size="sm" />
         </div>
       </div>
     </div>
