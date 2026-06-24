@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Menu, Search, ChevronDown, Bell, X, Waves } from 'lucide-react';
+import { Menu, Search, ChevronDown, Bell, X } from 'lucide-react';
+import BLogo from '../ui/BLogo';
+import DataSourceBadge from '../ui/DataSourceBadge';
 import { DATE_FILTERS } from '../../data/sampleData';
 
-export default function TopBar({ setMobileOpen, dateFilter, setDateFilter, notice, setNotice }) {
+export default function TopBar({ setMobileOpen, dateFilter, setDateFilter, notice, setNotice, dataStatus }) {
   const [open, setOpen] = useState(false);
   const [customStart, setCustomStart] = useState('');
-  const [customEnd, setCustomEnd] = useState('');
+  const [customEnd, setCustomEnd]     = useState('');
 
   return (
     <div className="sticky top-0 z-20 backdrop-blur-2xl bg-black/85 border-b border-blue-950/50">
@@ -29,13 +31,12 @@ export default function TopBar({ setMobileOpen, dateFilter, setDateFilter, notic
           </button>
           <div className="min-w-0">
             <p className="text-[10px] md:text-[11px] font-semibold tracking-[0.22em] text-blue-400/70 uppercase">Bluvia Maldives</p>
-            <h1 className="text-base md:text-xl font-bold text-white font-display tracking-tight truncate">
-              Business Dashboard
-            </h1>
+            <h1 className="text-base md:text-xl font-bold text-white font-display tracking-tight truncate">Business Dashboard</h1>
           </div>
+          <DataSourceBadge status={dataStatus} />
         </div>
 
-        {/* Right controls */}
+        {/* Right */}
         <div className="flex items-center gap-2 md:gap-3 shrink-0">
           {/* Search */}
           <div className="relative hidden md:block">
@@ -70,7 +71,7 @@ export default function TopBar({ setMobileOpen, dateFilter, setDateFilter, notic
                 {dateFilter === 'Custom Range' && (
                   <div className="px-4 py-2 space-y-2 border-t border-blue-900/40 mt-1 pt-3">
                     <input type="date" value={customStart} onChange={(e) => setCustomStart(e.target.value)} className="w-full px-2 py-1.5 rounded-lg bg-blue-950/40 border border-blue-900/50 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500/50" />
-                    <input type="date" value={customEnd} onChange={(e) => setCustomEnd(e.target.value)} className="w-full px-2 py-1.5 rounded-lg bg-blue-950/40 border border-blue-900/50 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500/50" />
+                    <input type="date" value={customEnd}   onChange={(e) => setCustomEnd(e.target.value)}   className="w-full px-2 py-1.5 rounded-lg bg-blue-950/40 border border-blue-900/50 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500/50" />
                   </div>
                 )}
               </div>
@@ -86,8 +87,8 @@ export default function TopBar({ setMobileOpen, dateFilter, setDateFilter, notic
           {/* Avatar */}
           <div className="relative">
             <div className="absolute inset-0 rounded-xl blur-md opacity-70" style={{ background: 'rgba(59,130,246,0.4)' }} />
-            <div className="relative w-9 h-9 rounded-xl flex items-center justify-center text-xs font-bold text-white shrink-0 logo-badge">
-              BM
+            <div className="relative">
+              <BLogo size="sm" />
             </div>
           </div>
         </div>

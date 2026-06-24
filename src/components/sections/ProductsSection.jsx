@@ -2,9 +2,12 @@ import React from 'react';
 import GlassCard from '../ui/GlassCard';
 import SectionHeading from '../ui/SectionHeading';
 import StatusPill from '../ui/StatusPill';
-import { TOP_PRODUCTS, fmtMVR, fmtNum } from '../../data/sampleData';
+import { useData } from '../../context/DataContext';
+import { fmtMVR, fmtNum } from '../../data/sampleData';
 
 export default function ProductsSection() {
+  const { TOP_PRODUCTS } = useData();
+
   return (
     <section id="products" className="space-y-6 scroll-mt-24">
       <GlassCard className="p-0 overflow-hidden">

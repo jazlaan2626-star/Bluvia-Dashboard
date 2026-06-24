@@ -1,13 +1,13 @@
 import React from 'react';
-import { Waves } from 'lucide-react';
+import BLogo from '../ui/BLogo';
 
 export default function LoadingScreen() {
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center bg-black gap-6">
       <div className="relative">
         <div className="absolute inset-0 rounded-2xl blur-xl" style={{ background: 'rgba(59,130,246,0.45)' }} />
-        <div className="relative w-16 h-16 rounded-2xl flex items-center justify-center logo-badge">
-          <Waves size={28} className="text-white" />
+        <div className="relative">
+          <BLogo size="lg" />
         </div>
       </div>
       <div className="text-center space-y-1">

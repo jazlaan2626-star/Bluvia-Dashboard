@@ -5,9 +5,10 @@ import GlassCard from '../ui/GlassCard';
 import SectionHeading from '../ui/SectionHeading';
 import StatusPill from '../ui/StatusPill';
 import { DonutTooltip } from '../ui/ChartTooltips';
-import { INVENTORY_SUMMARY, STOCK_ALERTS, CATEGORY_DATA, DONUT_COLORS } from '../../data/sampleData';
+import { useData } from '../../context/DataContext';
 
 export default function InventorySection() {
+  const { INVENTORY_SUMMARY, STOCK_ALERTS, CATEGORY_DATA, DONUT_COLORS } = useData();
   const inventoryDonut = CATEGORY_DATA.map((c) => ({ name: c.name, value: c.units }));
 
   return (
@@ -33,9 +34,7 @@ export default function InventorySection() {
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie data={inventoryDonut} dataKey="value" nameKey="name" innerRadius={58} outerRadius={88} paddingAngle={3}>
-                  {inventoryDonut.map((_, i) => (
-                    <Cell key={i} fill={DONUT_COLORS[i % DONUT_COLORS.length]} stroke="none" />
-                  ))}
+                  {inventoryDonut.map((_, i) => <Cell key={i} fill={DONUT_COLORS[i % DONUT_COLORS.length]} stroke="none" />)}
                 </Pie>
                 <Tooltip content={<DonutTooltip />} />
               </PieChart>
@@ -53,7 +52,7 @@ export default function InventorySection() {
 
         <GlassCard className="xl:col-span-3">
           <SectionHeading eyebrow="Action Needed" title="Stock Alert Panel" />
-          <div className="space-y-0">
+          <div>
             {STOCK_ALERTS.map((s) => (
               <div key={s.name} className="flex items-center justify-between gap-3 py-3 border-b border-blue-950/40 last:border-0">
                 <div className="flex items-center gap-3 min-w-0">

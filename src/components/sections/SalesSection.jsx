@@ -3,11 +3,12 @@ import GlassCard from '../ui/GlassCard';
 import SectionHeading from '../ui/SectionHeading';
 import CategoryBar from '../ui/CategoryBar';
 import ChannelRow from '../ui/ChannelRow';
-import { CATEGORY_DATA, DONUT_COLORS, SALES_CHANNELS } from '../../data/sampleData';
+import { useData } from '../../context/DataContext';
 
 export default function SalesSection() {
+  const { CATEGORY_DATA, DONUT_COLORS, SALES_CHANNELS } = useData();
   const maxCategory = Math.max(...CATEGORY_DATA.map((c) => c.value));
-  const maxChannel = Math.max(...SALES_CHANNELS.map((c) => c.revenue));
+  const maxChannel  = Math.max(...SALES_CHANNELS.map((c) => c.revenue));
 
   return (
     <section id="sales" className="space-y-6 scroll-mt-24">

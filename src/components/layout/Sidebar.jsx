@@ -1,5 +1,6 @@
 import React from 'react';
-import { Waves, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import BLogo from '../ui/BLogo';
 import { NAV_ITEMS } from '../../data/sampleData';
 
 export default function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen, activeNav, onNavClick }) {
@@ -18,9 +19,9 @@ export default function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobile
           <div className="flex items-center justify-between px-4 py-5 border-b border-blue-950/60">
             <div className="flex items-center gap-2.5 min-w-0">
               <div className="relative shrink-0">
-                <div className="absolute inset-0 rounded-xl blur-md" style={{ background: 'rgba(59,130,246,0.4)' }} />
-                <div className="relative w-9 h-9 rounded-xl flex items-center justify-center logo-badge">
-                  <Waves size={18} className="text-white" />
+                <div className="absolute inset-0 rounded-xl blur-md" style={{ background: 'rgba(59,130,246,0.35)' }} />
+                <div className="relative">
+                  <BLogo size="sm" />
                 </div>
               </div>
               {!collapsed && (
@@ -54,21 +55,18 @@ export default function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobile
                       : 'text-slate-500 hover:text-slate-200 hover:bg-blue-950/30'
                   } ${collapsed ? 'justify-center' : ''}`}
                 >
-                  <Icon
-                    size={17}
-                    className={`shrink-0 transition-colors ${active ? 'text-blue-400' : ''}`}
-                  />
+                  <Icon size={17} className={`shrink-0 transition-colors ${active ? 'text-blue-400' : ''}`} />
                   {!collapsed && <span className="truncate">{item.label}</span>}
                 </button>
               );
             })}
           </nav>
 
-          {/* Version / Collapse toggle (desktop only) */}
+          {/* Collapse toggle */}
           <div className="hidden lg:flex flex-col border-t border-blue-950/60 p-3 gap-2">
             {!collapsed && (
               <div className="px-3 py-2 rounded-xl bg-blue-950/20 border border-blue-900/20">
-                <p className="text-[10px] text-blue-400/50 font-mono">v1.0.0 · Demo Mode</p>
+                <p className="text-[10px] text-blue-400/50 font-mono">v1.0.0 · Bluvia Maldives</p>
               </div>
             )}
             <button

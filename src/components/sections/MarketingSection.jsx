@@ -2,9 +2,12 @@ import React from 'react';
 import GlassCard from '../ui/GlassCard';
 import SectionHeading from '../ui/SectionHeading';
 import StatusPill from '../ui/StatusPill';
-import { MARKETING_STATS, CAMPAIGNS, fmtMVR } from '../../data/sampleData';
+import { useData } from '../../context/DataContext';
+import { fmtMVR } from '../../data/sampleData';
 
 export default function MarketingSection() {
+  const { MARKETING_STATS, CAMPAIGNS } = useData();
+
   return (
     <section id="marketing" className="space-y-5 scroll-mt-24">
       <SectionHeading eyebrow="Growth" title="Marketing Performance" />
