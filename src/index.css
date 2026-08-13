@@ -34,6 +34,17 @@ body {
   line-height: 0.95;
 }
 
+/* Bluvia hero section — reuses the dashboard's caustic-light drift keyframes
+   as a contained ambient backdrop instead of a fixed, page-wide layer. */
+.bluvia-hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; }
+.bluvia-hero-blob { position: absolute; border-radius: 9999px; filter: blur(100px); opacity: 0.4; }
+.bluvia-hero-blob.blob-a { width: 560px; height: 560px; top: -140px; left: -100px; background: radial-gradient(circle, rgba(45,212,191,0.6), transparent 70%); animation: drift1 24s ease-in-out infinite; }
+.bluvia-hero-blob.blob-b { width: 600px; height: 600px; top: 20%; right: -160px; background: radial-gradient(circle, rgba(56,189,248,0.55), transparent 70%); animation: drift2 28s ease-in-out infinite; }
+.bluvia-hero-blob.blob-c { width: 480px; height: 480px; bottom: -160px; left: 30%; background: radial-gradient(circle, rgba(45,212,191,0.35), transparent 70%); animation: drift3 32s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .bluvia-hero-blob { animation: none; }
+}
+
 /* Glass dashboard cards */
 .glass-card {
   background: linear-gradient(135deg, rgba(15,35,58,0.7), rgba(8,18,32,0.75));
