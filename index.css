@@ -21,6 +21,19 @@ body {
 .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
 .font-mono { font-family: 'JetBrains Mono', monospace; }
 
+/* Securify hero section */
+.securify-hero {
+  font-family: 'Readex Pro', system-ui, -apple-system, sans-serif;
+  background: #000;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero-title {
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
 /* Glass dashboard cards */
 .glass-card {
   background: linear-gradient(135deg, rgba(15,35,58,0.7), rgba(8,18,32,0.75));
